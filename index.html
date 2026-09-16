@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Non-functional Finance Finder AI concept demonstrator">
+  <title>Finance Finder AI | Concept demonstrator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <img class="brand-logo" src="https://www.british-business-bank.co.uk/sites/g/files/sovrnj166/files/logo-british-business-bank_0.svg" alt="British Business Bank">
+    <div class="product-mark"><span>Finance Finder AI</span><small>Concept demonstrator</small></div>
+  </div>
+</header>
+<div class="concept-bar"><div class="shell"><strong>Future concept:</strong> a more conversational route to finance and support</div></div>
+<main id="main" class="shell">
+  <section id="startView" class="view active" aria-labelledby="startTitle">
+    <div class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Explore finance in your own words</span>
+        <h1 id="startTitle">Tell us about your business</h1>
+        <p class="lead">Describe your current business position, where it operates and what you want to use finance for. The more detail you provide, the more tailored your results can be.</p>
+        <div class="trust-row"><span>✓ Plain English</span><span>✓ Personalised guidance</span><span>✓ Explainable recommendations</span></div>
+      </div>
+      <div class="hero-orb" aria-hidden="true"><span>AI</span></div>
+    </div>
+
+    <section class="scenario-wrap" aria-labelledby="scenarioTitle">
+      <div class="section-heading"><div><span class="eyebrow">Presenter shortcuts</span><h2 id="scenarioTitle">Try an example business</h2></div><p>Select a scenario to populate the description.</p></div>
+      <div id="scenarioCards" class="scenario-grid"></div>
+    </section>
+
+    <section class="prompt-card" aria-labelledby="promptTitle">
+      <div class="prompt-head"><div><span class="ai-dot" aria-hidden="true"></span><h2 id="promptTitle">Describe your business and ambitions</h2></div><span id="charCount">0 characters</span></div>
+      <label class="sr-only" for="businessPrompt">Business description</label>
+      <textarea id="businessPrompt" rows="8" placeholder="For example: We are an established manufacturing business in Leeds seeking £500,000 to invest in new machinery and recruit additional staff..."></textarea>
+      <div class="prompt-actions">
+        <button id="copyBtn" class="button button-secondary" type="button">Copy demo prompt</button>
+        <button id="clearBtn" class="button button-quiet" type="button">Clear</button>
+        <button id="findBtn" class="button button-primary" type="button">Find finance and support <span aria-hidden="true">→</span></button>
+      </div>
+      <p id="statusMsg" class="status" role="status" aria-live="polite"></p>
+    </section>
+  </section>
+
+  <section id="loadingView" class="view loading-view" aria-labelledby="loadingTitle" aria-live="polite">
+    <div class="analysis-card">
+      <div class="pulse-mark" aria-hidden="true"><span></span></div>
+      <span class="eyebrow">Finance Finder AI</span>
+      <h1 id="loadingTitle">Building your personalised route</h1>
+      <p id="loadingMessage">Understanding your business profile…</p>
+      <div class="progress"><span id="progressFill"></span></div>
+      <ul class="analysis-steps">
+        <li id="step1"><i></i>Understanding your business</li>
+        <li id="step2"><i></i>Matching finance options</li>
+        <li id="step3"><i></i>Finding partners and guidance</li>
+        <li id="step4"><i></i>Creating your readiness plan</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="resultsView" class="view results-view" aria-labelledby="resultsTitle">
+    <nav class="result-nav" aria-label="Results sections">
+      <button data-scroll="overview">Overview</button><button data-scroll="finance">Finance</button><button data-scroll="readiness">Get ready</button><button data-scroll="support">Support</button><button data-scroll="reasoning">Why these results</button>
+    </nav>
+
+    <section id="overview" class="results-hero">
+      <div>
+        <span class="eyebrow light">Your personalised route</span>
+        <h1 id="resultsTitle">We’ve identified options for your business</h1>
+        <p id="businessSummary"></p>
+        <div id="profileTags" class="tags"></div>
+      </div>
+      <div class="score-panel" aria-label="Illustrative confidence scores">
+        <div class="gauge" style="--score:92"><span>92%</span><small>Business<br>understanding</small></div>
+        <div class="gauge" style="--score:89"><span>89%</span><small>Recommendation<br>confidence</small></div>
+        <div class="gauge readiness-gauge" style="--score:78"><span>78%</span><small>Finance<br>readiness</small></div>
+      </div>
+    </section>
+
+    <div class="notice"><strong>Concept only.</strong> Recommendations and scores shown are illustrative and are not financial advice.</div>
+
+    <section id="finance" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow">Potential matches</span><h2>Recommended finance</h2></div><p>Options selected from the needs described.</p></div>
+      <div id="financeCards" class="card-grid three"></div>
+    </section>
+
+    <section id="readiness" class="readiness-panel">
+      <div class="readiness-copy">
+        <span class="eyebrow light">Turn insight into action</span>
+        <h2 id="readinessTitle">Get ready for finance</h2>
+        <p id="readinessIntro"></p>
+        <div class="readiness-meter"><div><span>Finance readiness</span><strong>78% ready</strong></div><div class="meter"><span></span></div></div>
+        <button id="planBtn" class="button button-white" type="button">Create my readiness plan</button>
+      </div>
+      <div class="checklist-card"><h3>Your preparation checklist</h3><ul id="readinessList"></ul><div class="next-action"><small>Suggested next action</small><strong id="nextAction"></strong></div></div>
+    </section>
+
+    <section id="support" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow">A connected support journey</span><h2>Partners, guidance and tools</h2></div><p>More than a product result. A route towards the next step.</p></div>
+      <div class="support-columns">
+        <div class="support-block"><div class="support-title"><span>🤝</span><div><h3>Recommended finance partners</h3><p>Potential organisations to explore</p></div></div><div id="partnerCards" class="resource-list"></div></div>
+        <div class="support-block"><div class="support-title"><span>📖</span><div><h3>Recommended articles</h3><p>Guidance matched to your position</p></div></div><div id="articleCards" class="resource-list"></div></div>
+        <div class="support-block"><div class="support-title"><span>🧰</span><div><h3>External resources</h3><p>Practical tools and wider support</p></div></div><div id="resourceCards" class="resource-list"></div></div>
+      </div>
+    </section>
+
+    <section id="reasoning" class="reasoning-panel">
+      <div class="reasoning-main"><span class="eyebrow">Explainable by design</span><h2>How Finance Finder AI reached these recommendations</h2><p>The concept uses details in the business description to surface relevant finance types, preparation guidance and support.</p><div id="signals" class="signal-grid"></div></div>
+      <aside class="confidence-card"><span class="spark">✦</span><strong>92%</strong><span>Overall confidence</span><p>Illustrative score for this prototype journey.</p></aside>
+    </section>
+
+    <section class="next-panel"><span class="eyebrow">Continue the conversation</span><h2>What would you like to explore next?</h2><div class="next-grid"><button>💰 Compare finance options</button><button>📋 Build a readiness plan</button><button>☎ Speak to a specialist</button><button>📈 Improve funding eligibility</button></div></section>
+
+    <div class="result-footer"><div class="powered"><span class="spark">✦</span><span><strong>Powered by AI</strong><small>and British Business Bank content</small></span></div><button id="restartBtn" class="button button-secondary" type="button">Start a new search</button></div>
+  </section>
+</main>
+<footer><div class="shell"><p>Finance Finder AI concept demonstrator. No information is submitted or processed.</p></div></footer>
+<script src="script.js"></script>
+</body>
+</html>
